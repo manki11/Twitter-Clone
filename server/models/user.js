@@ -18,7 +18,11 @@ const UserSchema = new mongoose.Schema({
     },
     profileImgURL:{
         type: String
-    }
+    },
+    tweets:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Tweet"
+    }]
 });
 
 UserSchema.pre("save", async function (next) {
