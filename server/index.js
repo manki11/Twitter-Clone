@@ -10,6 +10,10 @@ const errorHandler= require("./controllers/error");
 const authRoutes= require("./routes/auth"),
     tweetRoutes= require("./routes/tweets");
 
+// Middleware
+const { isLoggedIn, isCorrectUser}= require("./middleware/auth");
+
+
 const PORT= 8081;
 
 app.use(cors());
@@ -17,7 +21,12 @@ app.use(bodyParser.json());
 
 // all routes
 app.use("/api/auth", authRoutes);
-app.use("/api/user/:id/tweets", tweetRoutes);
+app.use(
+    "/api/user/:id/tweets",
+    isLoggedIn,
+    isCorrectUser,
+    tweetRoutes
+);
 
 app.use(function (req,res,next) {
     let err=new Error("Not Found");
