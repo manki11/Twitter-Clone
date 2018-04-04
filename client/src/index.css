@@ -34,3 +34,35 @@ ul.nav.navbar-nav li{
     background-image: url("./images/nav-bg.png");
     background-size: 100% 100%;
 }
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: -1;
+    background-image: url("./images/signed-out-home.jpg");
+    text-align: center;
+    padding: 1rem;
+    background-size: cover;
+    color: white;
+    text-shadow: 0 0 8px #66757f;
+}
+
+.home h1{
+    font-size: 50px;
+    font-weight: 200;
+    font-family: sans-serif;
+}
+
+.home h4{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
