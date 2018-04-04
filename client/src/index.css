@@ -1,5 +1,36 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+  background-color: #e6ecf0;
+}
+
+/*Navbar*/
+
+.navbar{
+  margin-bottom: 1rem;
+}
+
+.navbar a{
+    font-weight: bold;
+}
+
+.navbar a:hover{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-brand> img{
+    display: inline-block;
+    width: 20px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+    border-radius: 2px;
+}
+
+ul.nav.navbar-nav li{
+    margin: 0 0.5rem;
+}
+
+.navbar{
+    background-image: url("./images/nav-bg.png");
+    background-size: 100% 100%;
 }

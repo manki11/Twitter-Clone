@@ -11,7 +11,7 @@ class Navbar extends Component {
                 <Link to="/" className="navbar-brand">
                     <img src={Logo} alt="Warbler Home"/>
                 </Link>
-                <ul className="nav navbar-nav navbar-right">
+                <ul className="nav navbar-nav ml-auto">
                     <li>
                         <Link to="/signup">Sign up</Link>
                     </li>
