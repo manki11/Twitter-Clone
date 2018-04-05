@@ -17,6 +17,14 @@ export default class AuthForm extends Component{
         })
     };
 
+    handleSubmit= (e)=>{
+        e.preventDefault();
+        const authType= this.props.signup ? "signup": "signin";
+        this.props.onAuth(authType, this.state).then(()=> {
+            console.log("LOGGED_IN");
+        })
+    };
+
     render(){
         const {email, username, password, profileImgURL}= this.state;
         const {heading, buttonText, signUp}= this.props;
