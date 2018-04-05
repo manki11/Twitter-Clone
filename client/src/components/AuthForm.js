@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import errors from "../store/reducers/errors";
 
 export default class AuthForm extends Component{
     constructor(props){
@@ -19,7 +20,9 @@ export default class AuthForm extends Component{
 
     handleSubmit= (e)=>{
         e.preventDefault();
-        const authType= this.props.signup ? "signup": "signin";
+        console.log();
+        const authType= this.props.signUp ? "signup": "signin";
+        console.log(authType);
         this.props.onAuth(authType, this.state).then(()=> {
             console.log("LOGGED_IN");
         })
@@ -27,12 +30,17 @@ export default class AuthForm extends Component{
 
     render(){
         const {email, username, password, profileImgURL}= this.state;
-        const {heading, buttonText, signUp}= this.props;
+        const {heading, buttonText, signUp, errors, history, removeError}= this.props;
+
+        history.listen(()=> {
+            removeError();
+        });
         return(
             <div className="row justify-content-md-center">
                 <div className="col-md-6">
                     <form onSubmit={this.handleSubmit}>
                         <h2>{heading}</h2>
+                        {errors.message && <div className="alert alert-danger">{errors.message}</div>}
                         <label htmlFor="email">Email:</label>
                         <input
                             className="form-control"
