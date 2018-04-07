@@ -6,10 +6,10 @@ import Logo from "../images/warbler-logo.png";
 import {logout} from "../store/actions/auth";
 
 class Navbar extends Component {
-    logout = e=> {
+    logout = e => {
         e.preventDefault();
         this.props.logout();
-    }
+    };
     render() {
         return (
             <nav className="navbar navbar-expand">
