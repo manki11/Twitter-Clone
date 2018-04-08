@@ -16,7 +16,7 @@ const Homepage = ({currentUser})=>{
     }else{
         return (
             <div>
-                <TweetTimeline/>
+                <TweetTimeline profileImgURL={currentUser.user.profileImgURL} username={currentUser.user.username}/>
             </div>
         )
     }

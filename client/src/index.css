@@ -68,3 +68,16 @@ ul.nav.navbar-nav li{
     font-family: sans-serif;
 }
 
+/*tweets*/
+
+#tweets .list-group-item{
+    display: flex;
+    align-items: flex-start;
+    padding: 7px 20px 12px;
+    margin: 5px;
+}
+
+#tweets:not(.no-hover) .list-group-item:hover{
+    background-color: #e6ecf0;
+}
+

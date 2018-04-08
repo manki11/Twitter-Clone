@@ -21,8 +21,12 @@ class TweetList extends Component {
         ));
 
         return (
-            <div>
-                {tweetList}
+            <div className="row col-sm-8">
+                <div className="row offset-1 col-sm-10">
+                    <ul className="list-group" id="tweets">
+                        {tweetList}
+                    </ul>
+                </div>
             </div>
         )
     }
