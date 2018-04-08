@@ -9,8 +9,8 @@ export const loadTweets = tweets=> ({
 
 export const fetchTweets= ()=> {
     return dispatch=> {
-        return apiCall("get", "/api/tweets").then((res)=> (
-            dispatch(loadTweets(res)).catch(err=> addError(err))
-        ))
+        return apiCall("get", "/api/tweets")
+            .then((res)=> (dispatch(loadTweets(res))))
+            .catch(err=> addError(err))
     }
-}
+};
