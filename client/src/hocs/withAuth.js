@@ -4,30 +4,31 @@ import {connect} from "react-redux"
 
 export default function (ComponentToBeRendered) {
     class Authenticate extends Component {
-        componentWillMount(){
-            if(this.props.isAuthenticated=== false){
+        componentWillMount() {
+            if (this.props.isAuthenticated === false) {
                 this.props.history.push("/signin")
             }
         }
 
-        componentWillUpdate(nextprops){
-            if(nextprops.isAuthenticated=== false){
+        componentWillUpdate(nextprops) {
+            if (nextprops.isAuthenticated === false) {
                 nextprops.history.push("/signin")
             }
         }
 
-        render(){
-            return(
+        render() {
+            return (
                 <ComponentToBeRendered {...this.props}/>
             )
         }
     }
-}
 
-function MapStateToProps(state) {
-    return {
-        isAuthenticated: state.currentUser.isAuthenticated
+
+    function MapStateToProps(state) {
+        return {
+            isAuthenticated: state.currentUser.isAuthenticated
+        }
     }
-}
 
-return connect(MapStateToProps)(Authenticate);
+    return connect(MapStateToProps)(Authenticate);
+}

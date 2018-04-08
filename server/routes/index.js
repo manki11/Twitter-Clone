@@ -9,7 +9,7 @@ const authRoutes= require("./auth"),
 router.use("/api/auth", authRoutes);
 
 router.use(
-    "/api/user/:id/tweets",
+    "/api/users/:id/tweets",
     isLoggedIn,
     isCorrectUser,
     tweetRoutes

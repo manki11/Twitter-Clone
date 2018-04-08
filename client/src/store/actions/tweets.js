@@ -14,3 +14,11 @@ export const fetchTweets= ()=> {
             .catch(err=> addError(err))
     }
 };
+
+export const postNewTweet= text=> (dispatch, getState)=> {
+    let {currentUser}= getState();
+    const id= currentUser.user.id;
+    return apiCall("post",`/api/users/${id}/tweets`, {text})
+        .then(res=> {})
+        .catch(err => addError(err))
+}

@@ -19,6 +19,11 @@ class Navbar extends Component {
                 {this.props.currentUser.isAuthenticated ? (
                     <ul className="nav navbar-nav ml-auto">
                         <li>
+                            <Link to={`/users/${this.props.currentUser.user.id}/tweets/new`}>
+                                New Tweet
+                            </Link>
+                        </li>
+                        <li>
                             <a onClick={this.logout}>Logout</a>
                         </li>
                     </ul>
