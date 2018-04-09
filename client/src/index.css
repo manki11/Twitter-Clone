@@ -81,3 +81,27 @@ ul.nav.navbar-nav li{
     background-color: #e6ecf0;
 }
 
+
+.timeline-image{
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+    margin-right: 30px;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover{
+    color: white;
+}
+
+.tweeter{
+    align-self: center;
+}
+
+.add-tweet{
+    margin-bottom: 30px;
+}

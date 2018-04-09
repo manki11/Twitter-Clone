@@ -1,6 +1,6 @@
 import {apiCall} from "../../services/api";
 import {addError} from "./errors"
-import {LOAD_TWEETS, REMOVE_TWEETS} from "../actionTypes";
+import {LOAD_TWEETS, REMOVE_TWEETS, ADD_TWEET} from "../actionTypes";
 
 export const loadTweets = tweets=> ({
     type: LOAD_TWEETS,
@@ -10,6 +10,11 @@ export const loadTweets = tweets=> ({
 export const remove= id => ({
     type: REMOVE_TWEETS,
     id
+});
+
+export const addTweet= tweet=> ({
+    type: ADD_TWEET,
+    tweet
 });
 
 export const deleteTweet= (user_id, tweet_id) => {
@@ -32,6 +37,6 @@ export const postNewTweet= text=> (dispatch, getState)=> {
     let {currentUser}= getState();
     const id= currentUser.user.id;
     return apiCall("post",`/api/users/${id}/tweets`, {text})
-        .then(res=> {})
+        .then(res=> (dispatch(addTweet(res))))
         .catch(err => addError(err))
 };
