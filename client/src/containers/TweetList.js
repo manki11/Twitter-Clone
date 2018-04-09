@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {fetchTweets, deleteTweet} from "../store/actions/tweets";
 import TweetItem from "../components/TweetItem";
+import currentUser from "../store/reducers/currentUser";
 
 class TweetList extends Component {
     componentDidMount() {
@@ -9,7 +10,7 @@ class TweetList extends Component {
     }
 
     render() {
-        const {tweets, deleteTweet} = this.props;
+        const {tweets, deleteTweet, currentUser} = this.props;
         let tweetList = tweets.map(t => (
             <TweetItem
                 key={t._id}
@@ -18,6 +19,7 @@ class TweetList extends Component {
                 username={t.user.username}
                 profileImgURL={t.user.profileImgURL}
                 removeTweet={deleteTweet.bind(this, t.user._id ,t._id)}
+                isOwner={currentUser === t.user._id}
             />
         ));
 
@@ -35,7 +37,8 @@ class TweetList extends Component {
 
 function MatchStateToProps(state) {
     return {
-        tweets: state.tweets
+        tweets: state.tweets,
+        currentUser: state.currentUser.user.id
     }
 }
 

@@ -3,7 +3,7 @@ import Moment from "react-moment";
 import {Link} from "react-router-dom";
 import defaultProfileImg from "../images/default-profile-image.jpg";
 
-const TweetItem = ({date, profileImgURL, text, username, removeTweet}) => (
+const TweetItem = ({date, profileImgURL, text, username, removeTweet, isOwner}) => (
     <div>
         <li className="list-group-item">
             <img
@@ -20,7 +20,9 @@ const TweetItem = ({date, profileImgURL, text, username, removeTweet}) => (
                     </Moment>
                 </span>
                 <p>{text}</p>
-                <a className="btn btn-danger" onClick={removeTweet}>Delete</a>
+                {isOwner && (
+                    <a className="btn btn-danger" onClick={removeTweet}>Delete</a>
+                )}
             </div>
         </li>
     </div>

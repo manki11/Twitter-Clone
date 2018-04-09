@@ -13,7 +13,8 @@ class TweetForm extends Component{
 
     handleNewEvent= event=> {
         event.preventDefault();
-        this.props.postNewTweet(this.state.tweet);
+        this.props.postNewTweet(this.state.tweet)
+            .then(()=> this.props.history.push("/"))
     };
 
     render(){
