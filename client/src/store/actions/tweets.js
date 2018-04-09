@@ -7,6 +7,19 @@ export const loadTweets = tweets=> ({
     tweets
 });
 
+export const remove= id => ({
+    type: REMOVE_TWEETS,
+    id
+});
+
+export const deleteTweet= (user_id, tweet_id) => {
+    return dispatch => {
+        return apiCall("delete", `/api/users/${user_id}/tweets/${tweet_id}`)
+            .then(()=> dispatch(remove(tweet_id)))
+            .catch(err=> addError(err))
+    }
+};
+
 export const fetchTweets= ()=> {
     return dispatch=> {
         return apiCall("get", "/api/tweets")
@@ -21,4 +34,4 @@ export const postNewTweet= text=> (dispatch, getState)=> {
     return apiCall("post",`/api/users/${id}/tweets`, {text})
         .then(res=> {})
         .catch(err => addError(err))
-}
+};
